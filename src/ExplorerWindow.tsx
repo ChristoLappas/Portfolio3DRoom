@@ -68,7 +68,7 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
 
   return (
     <div className="window" style={windowStyle}>
-      <div className="title-bar" onMouseDown={onMouseDown} style={{ cursor: maximized ? 'default' : 'move' }}>
+      <div className="title-bar" onMouseDown={onMouseDown} style={{ cursor: maximized ? 'default' : 'move'}}>
         <div className="title-bar-text">Portfolio - Christo Lappas</div>
         <div className="title-bar-controls">
           <button aria-label="Minimize" onClick={onClose} />   
@@ -76,7 +76,7 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
           <button aria-label="Close" onClick={onClose} />       
         </div>
       </div>
-      <div className="window-body" style={{ height: maximized ? '100vh' : '50vh' }}>
+      <div className="window-body" style={{ height: maximized ? '100vh' : '50vh', overflow: maximized ? 'hidden' : 'auto' }}>
         <menu role="tablist">
           {TABS.map(tab => (
             <button

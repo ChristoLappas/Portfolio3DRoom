@@ -34,4 +34,5 @@
 
 .maximized-content {
   height: calc(93vh - 36px);
+  overflow: auto;
 }

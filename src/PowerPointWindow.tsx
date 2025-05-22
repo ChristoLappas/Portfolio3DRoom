@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
 import "xp.css/dist/XP.css";
 
-interface ExplorerWindowProps {
+interface PowerPointWindowProps {
   onClose: () => void;
 }
 
-const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
+const PowerPointWindow: React.FC<PowerPointWindowProps> = ({ onClose }) => {
   const [maximized, setMaximized] = useState(false);
-  const [position, setPosition] = useState({ x: 300, y: 100 });
+  const [position, setPosition] = useState({ x: 400, y: 180 });
   const [dragging, setDragging] = useState(false);
   const dragOffset = useRef({ x: 0, y: 0 });
 
@@ -61,7 +61,7 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
   return (
     <div className="window" style={windowStyle}>
       <div className="title-bar" onMouseDown={onMouseDown} style={{ cursor: maximized ? 'default' : 'move' }}>
-        <div className="title-bar-text">About Me</div>
+        <div className="title-bar-text">PowerPoint</div>
         <div className="title-bar-controls">
           <button aria-label="Minimize" onClick={onClose} />   
           <button aria-label="Maximize" onClick={() => setMaximized(m => !m)} />         
@@ -69,11 +69,11 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
         </div>
       </div>
       <div className="window-body">
-        <h3>Hello!</h3>
-        <p>This is the portfolio website of Christos Lappas.</p>        
+        <h3>PowerPoint I-talent</h3>
+        <p>This window will show an embedded PowerPoint presentation.</p>
       </div>
     </div>
   );
 };
 
-export default ExplorerWindow; 
+export default PowerPointWindow; 

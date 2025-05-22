@@ -19,7 +19,6 @@
   height: 320px;
   object-fit: cover;
   border-radius: 20px;
-  /* border: 3px solid #000000; */
   background: #fff;
   margin-bottom: 1rem;
 }
@@ -29,8 +28,3 @@
     width: 50%;
     font-size: 1.1rem;
 }
-
-.window-body {
-  max-height: 93vh;
-  overflow: auto;
-} 

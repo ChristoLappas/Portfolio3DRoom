@@ -5,10 +5,17 @@ interface ExplorerWindowProps {
   onClose: () => void;
 }
 
+const TABS = [
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'resume', label: 'Resume' },
+];
+
 const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
   const [maximized, setMaximized] = useState(false);
   const [position, setPosition] = useState({ x: 300, y: 100 });
   const [dragging, setDragging] = useState(false);
+  const [selectedTab, setSelectedTab] = useState('about');
   const dragOffset = useRef({ x: 0, y: 0 });
 
   const windowStyle = maximized
@@ -69,8 +76,27 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
         </div>
       </div>
       <div className="window-body">
-        <h3>Hello!</h3>
-        <p>This is the portfolio website of Christos Lappas.</p>        
+        <menu role="tablist">
+          {TABS.map(tab => (
+            <button
+              key={tab.id}
+              aria-selected={selectedTab === tab.id}
+              aria-controls={tab.id}
+              onClick={() => setSelectedTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </menu>
+        <article role="tabpanel" id="about" hidden={selectedTab !== 'about'} className={maximized ? 'maximized-content' : ''}>
+          <p>about</p>
+        </article>
+        <article role="tabpanel" id="projects" hidden={selectedTab !== 'projects'} className={maximized ? 'maximized-content' : ''}>
+          <p>projects</p>
+        </article>
+        <article role="tabpanel" id="resume" hidden={selectedTab !== 'resume'} className={maximized ? 'maximized-content' : ''}>
+          <p>resume</p>
+        </article>
       </div>
     </div>
   );

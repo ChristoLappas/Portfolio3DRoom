@@ -31,3 +31,7 @@
   font-size: 14px;
   text-align: center;
 } 
+
+.maximized-content {
+  height: calc(93vh - 36px);
+}

@@ -1,0 +1,36 @@
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.about-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.about-photo {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 20px;
+  /* border: 3px solid #000000; */
+  background: #fff;
+  margin-bottom: 1rem;
+}
+
+#about-text {
+    text-align: center;
+    width: 50%;
+    font-size: 1.1rem;
+}
+
+.window-body {
+  max-height: 93vh;
+  overflow: auto;
+} 

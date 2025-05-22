@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import "xp.css/dist/XP.css";
+import About from './About';
 
 interface ExplorerWindowProps {
   onClose: () => void;
@@ -68,14 +69,14 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
   return (
     <div className="window" style={windowStyle}>
       <div className="title-bar" onMouseDown={onMouseDown} style={{ cursor: maximized ? 'default' : 'move' }}>
-        <div className="title-bar-text">About Me</div>
+        <div className="title-bar-text">Portfolio - Christo Lappas</div>
         <div className="title-bar-controls">
           <button aria-label="Minimize" onClick={onClose} />   
           <button aria-label="Maximize" onClick={() => setMaximized(m => !m)} />         
           <button aria-label="Close" onClick={onClose} />       
         </div>
       </div>
-      <div className="window-body">
+      <div className="window-body" style={{ height: maximized ? '100vh' : '50vh' }}>
         <menu role="tablist">
           {TABS.map(tab => (
             <button
@@ -89,7 +90,7 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
           ))}
         </menu>
         <article role="tabpanel" id="about" hidden={selectedTab !== 'about'} className={maximized ? 'maximized-content' : ''}>
-          <p>about</p>
+          <About />
         </article>
         <article role="tabpanel" id="projects" hidden={selectedTab !== 'projects'} className={maximized ? 'maximized-content' : ''}>
           <p>projects</p>

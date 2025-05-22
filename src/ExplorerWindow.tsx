@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import "xp.css/dist/XP.css";
 import About from './About';
 import Resume from './Resume';
+import Projects from './Projects';
 
 interface ExplorerWindowProps {
   onClose: () => void;
@@ -94,7 +95,7 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
           <About />
         </article>
         <article role="tabpanel" id="projects" hidden={selectedTab !== 'projects'} className={maximized ? 'maximized-content' : ''}>
-          
+          <Projects />
         </article>
         <article role="tabpanel" id="resume" hidden={selectedTab !== 'resume'} className={maximized ? 'maximized-content' : ''}>
           <Resume />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import "xp.css/dist/XP.css";
 
 interface ExplorerWindowProps {
@@ -7,6 +7,9 @@ interface ExplorerWindowProps {
 
 const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
   const [maximized, setMaximized] = useState(false);
+  const [position, setPosition] = useState({ x: 100, y: 100 });
+  const [dragging, setDragging] = useState(false);
+  const dragOffset = useRef({ x: 0, y: 0 });
 
   const windowStyle = maximized
     ? {
@@ -20,25 +23,54 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
     : {
         width: 400,
         position: 'absolute' as const,
-        top: 100,
-        left: 100,
+        top: position.y,
+        left: position.x,
         zIndex: 10,
       };
 
+  const onMouseDown = (e: React.MouseEvent) => {
+    if (maximized) return;
+    setDragging(true);
+    dragOffset.current = {
+      x: e.clientX - position.x,
+      y: e.clientY - position.y,
+    };
+    document.body.style.userSelect = 'none';
+  };
+
+  React.useEffect(() => {
+    if (!dragging) return;
+    const onMouseMove = (e: MouseEvent) => {
+      setPosition({
+        x: e.clientX - dragOffset.current.x,
+        y: e.clientY - dragOffset.current.y,
+      });
+    };
+    const onMouseUp = () => {
+      setDragging(false);
+      document.body.style.userSelect = '';
+    };
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+    };
+  }, [dragging]);
+
   return (
     <div className="window" style={windowStyle}>
-      <div className="title-bar">
+      <div className="title-bar" onMouseDown={onMouseDown} style={{ cursor: maximized ? 'default' : 'move' }}>
         <div className="title-bar-text">About Me</div>
         <div className="title-bar-controls">
-          <button aria-label="Minimize" onClick={() => {}} />   
+          <button aria-label="Minimize" onClick={onClose} />   
           <button aria-label="Maximize" onClick={() => setMaximized(m => !m)} />         
           <button aria-label="Close" onClick={onClose} />       
         </div>
       </div>
       <div className="window-body">
         <h3>Hello!</h3>
-        <p>This is a placeholder for information about myself.</p>
-        <p>You can update this section with your own details.</p>
+        <p>This is the portfolio website of Christos Lappas.</p>        
       </div>
     </div>
   );

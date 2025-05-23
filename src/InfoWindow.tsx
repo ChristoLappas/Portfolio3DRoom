@@ -1,15 +1,24 @@
 import React, { useState, useRef } from 'react';
 import "xp.css/dist/XP.css";
+import About from './About';
+import Resume from './Resume';
+import Projects from './Projects';
 
-
-interface ExplorerWindowProps {
+interface InfoWindowProps {
   onClose: () => void;
 }
 
-const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
+const TABS = [
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'resume', label: 'Resume' },
+];
+
+const InfoWindow: React.FC<InfoWindowProps> = ({ onClose }) => {
   const [maximized, setMaximized] = useState(false);
-  const [position, setPosition] = useState({ x: 480, y: 160 });
+  const [position, setPosition] = useState({ x: 300, y: 100 });
   const [dragging, setDragging] = useState(false);
+  const [selectedTab, setSelectedTab] = useState('about');
   const dragOffset = useRef({ x: 0, y: 0 });
 
   const windowStyle = maximized
@@ -62,7 +71,7 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
   return (
     <div className="window" style={windowStyle}>
       <div className="title-bar" onMouseDown={onMouseDown} style={{ cursor: maximized ? 'default' : 'move'}}>
-        <div className="title-bar-text">Internet Explorer</div>
+        <div className="title-bar-text">Portfolio - Christo Lappas</div>
         <div className="title-bar-controls">
           <button aria-label="Minimize" onClick={onClose} />   
           <button aria-label="Maximize" onClick={() => setMaximized(m => !m)} />         
@@ -70,10 +79,30 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
         </div>
       </div>
       <div className="window-body" style={{ height: maximized ? '100vh' : '50vh', overflow: maximized ? 'hidden' : 'auto' }}>
-        
+        <menu role="tablist">
+          {TABS.map(tab => (
+            <button
+              key={tab.id}
+              aria-selected={selectedTab === tab.id}
+              aria-controls={tab.id}
+              onClick={() => setSelectedTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </menu>
+        <article role="tabpanel" id="about" hidden={selectedTab !== 'about'} className={maximized ? 'maximized-content' : ''}>
+          <About />
+        </article>
+        <article role="tabpanel" id="projects" hidden={selectedTab !== 'projects'} className={maximized ? 'maximized-content' : ''}>
+          <Projects />
+        </article>
+        <article role="tabpanel" id="resume" hidden={selectedTab !== 'resume'} className={maximized ? 'maximized-content' : ''}>
+          <Resume />
+        </article>
       </div>
     </div>
   );
 };
 
-export default ExplorerWindow; 
+export default InfoWindow; 

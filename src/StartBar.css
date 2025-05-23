@@ -1,0 +1,171 @@
+:root {
+    --azul-janela: #0055ea;
+    --azul: #225ad9;
+    --azul-claro: #3980f4;
+    --azul-notification: #1188e5;
+    --bege: #ece9d8;
+}
+
+*,
+*:before,
+*:after,
+*:placeholder-shown {
+    font-family: inherit;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.start-bar {
+  position: fixed;         
+  bottom: 0;               
+  left: 0;
+  width: 100%;             
+  height: 40px;            
+  background: linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;          
+}
+
+.start-button {
+  height: 40px;            
+  cursor: pointer;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+#menuColumns a {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  margin: 0;
+}
+
+#menu {
+    position: absolute;    
+    bottom: 40px;
+    left: 1px;
+    border: 3px solid var(--azul-janela);
+    border-radius: 5px;
+    z-index: 99999999;
+}
+
+#menu:hover,
+footer #start:focus-within #menu {
+    display: block;
+}
+
+#menu img {
+    height: 27px;
+}
+
+#menu #avatar {
+    background-color: var(--azul);
+    padding: 5px;
+    gap: 10px;
+    align-items: center;
+}
+
+#menu #avatar p {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#menu #avatar img {
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+#menu #menuColumns {
+    width: 95vw;
+    max-width: 400px;
+}
+
+#menu #menuColumns > div {
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+#menu #menuColumns div div,
+#menu #menuColumns div label,
+#menu #menuColumns div a {
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+    padding: 1px;
+}
+
+#menu #menuColumns div div:hover,
+#menu #menuColumns div label:hover,
+#menu #menuColumns div a:hover {
+    color: white;
+    background-color: var(--azul);
+}
+
+#menu #menuColumns #menuFirstColumn {
+    background-color: white;
+    justify-content: space-between;
+}
+
+#menu #menuColumns #menuLastColumn {
+    background-color: #d3e5fa;
+}
+
+#menu #menuColumns #menuFirstColumn #allPrograms {
+    justify-content: center;
+    font-weight: bold;
+}
+
+#menu #menuSystem {
+    background-color: var(--azul);
+    justify-content: end;
+    gap: 10px;
+    padding: 10px;
+}
+
+#menu #menuSystem div {
+    align-items: center;
+    color: white;
+    gap: 5px;
+    padding: 1px;
+    cursor: pointer;
+}
+
+#menu #menuSystem div:hover {
+    background-color: blue;
+}
+
+#notification {
+    align-items: center;
+    background: var(--azul-notification);
+    border-left: 1px solid var(--azul);
+    padding: 5px;
+    padding-right: 10px;
+    gap: 5px;
+    height: 40px;
+}
+
+#notification img {
+    cursor: pointer;
+    height: 22px;
+}
+
+#notification p {
+    color: white;
+    white-space: nowrap;
+}

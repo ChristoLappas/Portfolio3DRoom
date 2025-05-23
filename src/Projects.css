@@ -23,7 +23,7 @@
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   max-width: 60%;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto;  
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease;
@@ -41,7 +41,8 @@
 .project-card p {
   font-size: 1.1rem;
   color: #555;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .project-links a {
@@ -54,4 +55,10 @@
 
 .project-links a:hover {
   color: #0056b3;
+}
+
+.screenshot {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }

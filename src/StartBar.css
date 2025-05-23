@@ -59,7 +59,7 @@ hr {
     left: 1px;
     border: 3px solid var(--azul-janela);
     border-radius: 5px;
-    z-index: 99999999;
+    z-index: 1000;
 }
 
 #menu:hover,

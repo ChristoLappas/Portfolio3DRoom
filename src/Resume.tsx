@@ -21,13 +21,13 @@ const Resume: React.FC = () => (
       src={resume1}
       alt="Christos Lappas resume"
       className="resume"
-      style={{ width: "60%" }}
+      style={{ width: "70%" }}
     />
     <img
       src={resume2}
       alt="Christos Lappas resume"
       className="resume"
-      style={{ width: "60%" }}
+      style={{ width: "70%" }}
     />
   </div>
 );

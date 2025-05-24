@@ -61,7 +61,7 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
 
   return (
     <div className="window" style={windowStyle}>
-      <div className="title-bar" onMouseDown={onMouseDown} style={{ cursor: maximized ? 'default' : 'move'}}>
+      <div className="title-bar" onMouseDown={onMouseDown} style={{ cursor: maximized ? 'default' : 'move'}}>        
         <div className="title-bar-text">Internet Explorer</div>
         <div className="title-bar-controls">
           <button aria-label="Minimize" onClick={onClose} />   
@@ -73,7 +73,7 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
         <div style={{width: '90%', margin: '10px', backgroundColor: 'white', padding: '10px', fontSize: maximized ? '1.3rem' : ''}}>
           <p>https://broux-verwarming-sanitair.be</p>
         </div>
-        <iframe src="https://broux-verwarming-sanitair.be" style={{height: maximized ? '85vh' : '40vh'}}></iframe>
+        <iframe src="https://broux-verwarming-sanitair.be" style={{height: maximized ? '85vh' : '50vh'}}></iframe>
       </div>
     </div>
   );

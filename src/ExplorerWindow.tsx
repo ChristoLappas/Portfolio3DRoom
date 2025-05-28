@@ -70,7 +70,10 @@ const ExplorerWindow: React.FC<ExplorerWindowProps> = ({ onClose }) => {
         </div>
       </div>
       <div className="window-body" style={{ height: maximized ? '100vh' : '50vh', overflow: maximized ? 'hidden' : 'auto' }}>
-        
+        <div style={{width: '90%', margin: '10px', backgroundColor: 'white', padding: '10px', fontSize: maximized ? '1.3rem' : ''}}>
+          <p>https://broux-verwarming-sanitair.be</p>
+        </div>
+        <iframe src="https://broux-verwarming-sanitair.be" style={{height: maximized ? '85vh' : '40vh'}}></iframe>
       </div>
     </div>
   );

@@ -78,7 +78,7 @@ const PowerPointWindow: React.FC<PowerPointWindowProps> = ({ onClose }) => {
       </div>
       <div className="window-body">
         <h3>PowerPoint I-talent</h3>
-        <iframe src="https://1drv.ms/p/c/e6712aab9ab0f355/IQRdJMwc6igiSLpjrh2_bLDxAYr4r0rpMdNxR2Tcpbw3VBQ?em=2&amp;wdAr=1.7777777777777777" style={{height: maximized ? '85vh' : '40vh'}}></iframe>
+        <iframe src="https://1drv.ms/p/c/e6712aab9ab0f355/IQTvKc_eYPOYTJk-0s3SY8MfAeB09qSxoZS35q6ejvrScuc?em=2&amp;wdAr=1.7777777777777777" style={{height: maximized ? '85vh' : '40vh'}}></iframe>
       </div>
     </div>
   );

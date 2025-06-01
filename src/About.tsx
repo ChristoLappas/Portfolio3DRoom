@@ -14,6 +14,20 @@ const About: React.FC = () => (
       interest in design. I love building creative, immersive experiences that
       blend technology and storytelling. <br />
       <br />
+      This 3D portfolio was created as part of the I-Talent program, where we
+      were challenged to develop three personal projects showcasing our skills.
+      The first project is a professional website built for a heating and
+      plumbing business, featuring detailed information about the services
+      offered, past projects, and a contact form. You can explore this website
+      by clicking on the Internet Explorer icon on the desktop. The second
+      project is this interactive 3D room itself, which includes a nostalgic
+      Windows XP-style interface. Here, you can discover more about me, my
+      projects, and my resume — all in one immersive experience. Finally, all of
+      this is hosted on a Raspberry Pi that has been transformed into a fully
+      functioning web server, making this entire setup not only creative but
+      also technically self-sufficient.
+      <br />
+      <br />
       To bring this site to life, I created a 3D room using Blender, complete
       with a computer screen that displays this interactive website through an
       iframe. You can explore and use the site just like a real desktop — but
